@@ -43,5 +43,13 @@ public class MainWithEnum
         System.out.println("--- DefectUtil ---");
         int days = DefectUtil.getProjectedTurnaroundDays(Severity.URGENT);
         System.out.println( "Days to fix: " + days );
+
+        System.out.println("--- Comparing two enum types ---");
+        System.out.println(Severity.LOW.equals(Severity.LOW));
+        System.out.println(Severity.LOW.equals(Severity.HIGH));
+        System.out.println(Severity.LOW.equals(BasicColor.GREEN));
+        System.out.println(Severity.LOW.equals(BasicColor.RED));
+        System.out.println(Severity.LOW.equals(BasicColor.BLUE));
+
     }
 }
