@@ -10,27 +10,38 @@ public class MainWithEnum
             System.out.println(severity.name() + ": " + severity.ordinal());
         }
 
-        System.out.println("--- valueOFº ---");
+        System.out.println("--- valueOF() ---");
         // Da error
         // System.out.println(Severity.valueOf("ULTRAHIGH"));
         System.out.println(Severity.valueOf("HIGH"));
 
 
-        System.out.println("--- EQUALS ---");
+        System.out.println("--- equals() ---");
         System.out.println(Severity.LOW.equals(Severity.LOW));  // true
         System.out.println(Severity.LOW.equals("LOW"));         // false
         System.out.println(Severity.LOW.equals(0));             // false
 
 
-        System.out.println("--- COMPARETO ---");
+        System.out.println("--- compareTo() ---");
         System.out.println(Severity.URGENT.compareTo(Severity.LOW));
 
-        System.out.println("--- getDeclaringClass ---");
+        Severity s1 = Severity.LOW;
+        Severity s2 = Severity.HIGH;
+        // s1.compareTo(s2) returns s1.ordinal() - s2.ordinal()
+        int diff = s1.compareTo(s2);
+        if (diff > 0) {
+            System.out.println(s1 + " occurs after " + s2);
+        }
+        else {
+            System.out.println(s1 + " occurs before " + s2);
+        }
+
+        System.out.println("--- getDeclaringClass() ---");
         System.out.println(Severity.URGENT.getDeclaringClass());
 
 
-        System.out.println("--- SWITCH ---");
-        int days = 0;
+        System.out.println("--- DefectUtil ---");
+        int days = DefectUtil.getProjectedTurnaroundDays(Severity.URGENT);
         System.out.println( "Days to fix: " + days );
     }
 }
