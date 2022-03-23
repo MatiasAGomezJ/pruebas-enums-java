@@ -15,4 +15,20 @@ public enum SmartSeverity {
     public int getProjectedTurnaroundDays() {
         return projectedTurnaroundDays;
     }
+
+    public static void display() {
+        String output = "";
+        for (SmartSeverity s: SmartSeverity.values()) {
+            output += "\t" + s.name() + "...." + s.projectedTurnaroundDays + "$\n";
+        }
+        System.out.println(output);
+    }
+    public static int checkDays(String sName) {
+        return SmartSeverity.valueOf(sName).getProjectedTurnaroundDays();
+    }
+
+    public void prueba() {
+        System.out.println(SmartSeverity.values() instanceof int);
+        System.out.println(SmartSeverity.values());
+    }
 }
